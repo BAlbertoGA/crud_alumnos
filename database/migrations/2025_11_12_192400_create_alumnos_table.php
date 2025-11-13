@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('alumnos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('primerapellido');
+            $table->string('segundoapellido');
             $table->unsignedBigInteger('escuela_id'); // clave foránea
             $table->timestamps();
 
