@@ -3,10 +3,9 @@
 <h1>Listado de Alumnos</h1>
 
     <a href="{{ route('alumnos.create') }}">➕ Nuevo Alumno</a>
+    <br>
 <div class="container">
-    @if(Session::has('mensaje'))
-        {{ Session::get('mensaje') }}
-    @endif
+    @include('layouts.message')
     
     <table class="table table-striped">
         <thead class="thead-inverse">

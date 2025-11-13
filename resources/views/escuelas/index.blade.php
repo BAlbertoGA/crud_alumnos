@@ -4,9 +4,7 @@
     <h1>Listado de Escuelas</h1>
 
     <a href="{{ route('escuelas.create') }}">➕ Nueva Escuela</a>
-    @if(Session::has('mensaje'))
-        {{ Session::get('mensaje') }}
-    @endif
+    @include('layouts.message')
 
     <table cellpadding="8">
         <tr>
