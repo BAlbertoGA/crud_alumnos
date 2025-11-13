@@ -13,7 +13,7 @@ class EscuelaController extends Controller
     public function index()
     {
         //
-        $escuelas = Escuela::paginate(10);
+        $escuelas = Escuela::paginate(5);
         return view('escuelas.index', compact('escuelas'));
     }
 
@@ -33,7 +33,7 @@ class EscuelaController extends Controller
     {
         //
         Escuela::insert($request->except('_token'));
-        return redirect()->route('escuelas.index')->with('mensaje', 'Escuela creada exitosamente.');
+        return redirect('escuelas/')->with('mensaje', 'Escuela agregada exitosamente.');
     }
 
     /**
@@ -62,7 +62,7 @@ class EscuelaController extends Controller
         //
         Escuela::where('id', $id)->update($request->except('_token', '_method'));
         $escuela = Escuela::findOrFail($id);
-        return redirect()->route('escuelas.index')->with('mensaje', 'Escuela actualizada exitosamente.');
+        return redirect('escuelas/')->with('mensaje', 'Escuela actualizada exitosamente.');
     }
 
     /**
@@ -73,6 +73,6 @@ class EscuelaController extends Controller
         //
         $escuela = Escuela::findOrFail($id);
         Escuela::destroy($id);
-        return redirect()->route('escuelas.index')->with('mensaje', 'Escuela eliminada exitosamente.');
+        return redirect('escuelas/')->with('mensaje', 'Escuela eliminada exitosamente.');
     }
 }

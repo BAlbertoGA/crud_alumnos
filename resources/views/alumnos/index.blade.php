@@ -1,14 +1,11 @@
 @extends('layouts.app')
 @section('content')
+<h1>Listado de Alumnos</h1>
 
+    <a href="{{ route('alumnos.create') }}">➕ Nuevo Alumno</a>
 <div class="container">
     @if(Session::has('mensaje'))
-        <div class="alert alert-success alert-dismissible" role="alert">
-            {{ Session::get('mensaje') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+        {{ Session::get('mensaje') }}
     @endif
     
     <table class="table table-striped">
@@ -19,6 +16,7 @@
                 <th>Primer Apellido</th>
                 <th>Segundo Apellido</th>
                 <th>Escuela</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         
@@ -30,6 +28,17 @@
                     <td>{{ $alumno->primerapellido }}</td>
                     <td>{{ $alumno->segundoapellido }}</td>
                     <td>{{ $alumno->escuelas->nombre }}</td>
+                    <td>
+                        <a href="{{ url('/alumnos/'.$alumno->id.'/edit') }}" class="btn btn-warning">
+                            Editar
+                        </a>
+                        
+                        <form action="{{ url('/alumnos/'.$alumno->id) }}" class="d-inline" method="post">
+                            @csrf
+                            {{ method_field('DELETE') }}
+                            <input type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar" class="btn btn-danger">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

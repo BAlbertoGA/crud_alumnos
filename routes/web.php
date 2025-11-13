@@ -8,8 +8,8 @@ use App\Http\Controllers\AlumnoController;
 //     return view('alumnos.index');
 // });
 
-// Route::resource('escuelas', EscuelaController::class);
-// Route::resource('alumnos', AlumnoController::class);
+Route::resource('escuelas', EscuelaController::class);
+Route::resource('alumnos', AlumnoController::class);
 
 Route::get('/escuelas', [EscuelaController::class, 'index']);
 Route::get('/alumnos', [AlumnoController::class, 'index']);

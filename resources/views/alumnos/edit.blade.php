@@ -6,7 +6,7 @@
 <form action="{{url('/alumnos/'.$alumno->id)}}" method="post">
     @csrf
     {{method_field('PATCH')}}
-    @include('alumnos.formAlumnos', ['modo'=>'Editar'])
+    @include('alumnos.formAlumnos', ['modo'=>'Editar Alumno'])
     
     
 </form>

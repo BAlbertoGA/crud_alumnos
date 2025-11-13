@@ -35,5 +35,5 @@
         @endforeach
     </select>
 
-<input type="submit" value="Guardar Datos" class="btn btn-success">
-<a href="{{ url('alumnos') }}" class="btn btn-primary">Regresar</a>
+<input type="submit" value="{{ $modo }}" class="btn btn-success">
+<a href="{{ url('alumnos/') }}" class="btn btn-primary">Regresar</a>

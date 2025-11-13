@@ -23,7 +23,7 @@ class AlumnoController extends Controller
     public function store(Request $request)
     {
         Alumno::create($request->all());
-        return redirect()->route('alumnos.index')->with('mensaje', 'Alumno creado exitosamente.');
+        return redirect('alumnos/')->with('mensaje', 'Alumno creado exitosamente.');
     }
 
     public function edit(Alumno $alumno)
@@ -35,13 +35,13 @@ class AlumnoController extends Controller
     public function update(Request $request, Alumno $alumno)
     {
         $alumno->update($request->all());
-        return redirect()->route('alumnos.index')->with('mensaje', 'Alumno actualizado exitosamente.');
+        return redirect('alumnos/')->with('mensaje', 'Alumno actualizado exitosamente.');
     }
 
     public function destroy(Alumno $alumno)
     {
         $alumno->delete();
-        return redirect()->route('alumnos.index')->with('mensaje', 'Alumno eliminado exitosamente.');
+        return redirect('alumnos/')->with('mensaje', 'Alumno eliminado exitosamente.');
     }
 }
 
