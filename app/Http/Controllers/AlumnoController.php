@@ -11,7 +11,7 @@ class AlumnoController extends Controller
 {
     public function index()
     {
-    $alumnos = Alumno::with('escuela')->get();
+    $alumnos = Alumno::with('escuela')->paginate(5);
     return view('alumnos.index', compact('alumnos'));
 }
 

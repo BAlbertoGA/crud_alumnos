@@ -10,10 +10,8 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="{{ url('/') }}">Inicio</a>
           <a class="dropdown-item" href="{{ url('/alumnos/create') }}">Agregar alumno</a>
-          <a class="dropdown-item" href="{{ url('/alumnos/edit') }}">Editar alumno</a>
           <a class="dropdown-item" href="{{ url('/escuelas') }}">Lista Escuelas</a>
           <a class="dropdown-item" href="{{ url('/escuelas/create') }}">Agregar Escuela</a>
-          <a class="dropdown-item" href="{{ url('/escuelas/edit') }}">Editar Escuela</a>
         </div>
       </div>  
     </li>

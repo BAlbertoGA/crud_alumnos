@@ -15,7 +15,7 @@
         <select class="form-control" name="escuela_id" id="Escuela">
             @foreach ($escuelas as $escuela)
                 <option value="{{ $escuela->id }}" 
-                    @if (isset($alumno->Escuela) && $alumno->Escuela == $escuela->id)
+                    @if (isset($alumno->escuela_id) && $alumno->escuela_id == $escuela->id)
                         selected
                     @endif
                 >

@@ -4,15 +4,18 @@
     <h1>Listado de Escuelas</h1>
 
     <a href="{{ route('escuelas.create') }}">➕ Nueva Escuela</a>
+    <br>
+<div class="container">
     @include('layouts.message')
-
-    <table cellpadding="8">
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Dirección</th>
-            <th>Acciones</th>
-        </tr>
+    <table class="table table-striped">
+        <thead>
+            <tr class="thead-inverse">
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
         @foreach($escuelas as $escuela)
             <tr>
                 <td>{{ $escuela->id }}</td>
@@ -32,4 +35,6 @@
             </tr>
         @endforeach
     </table>
+    {{ $escuelas->links('pagination::bootstrap-5') }}
+</div>
 @endsection
