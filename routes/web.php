@@ -11,6 +11,6 @@ use App\Http\Controllers\AlumnoController;
 Route::resource('escuelas', EscuelaController::class);
 Route::resource('alumnos', AlumnoController::class);
 
-Route::get('/escuelas', [EscuelaController::class, 'index']);
-Route::get('/alumnos', [AlumnoController::class, 'index']);
-Route::get('/', [AlumnoController::class, 'index']);
+// Route::get('/escuelas', [EscuelaController::class, 'index'])->name('escuelas.index');
+// Route::get('/alumnos', [AlumnoController::class, 'index'])->name('alumnos.index');
+Route::get('/', [AlumnoController::class, 'index'])->name('home');

@@ -8,7 +8,7 @@
           Menu
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="{{ url('/') }}">Inicio</a>
+          <a class="dropdown-item" href="{{ url('/') }}">Lista Alumnos</a>
           <a class="dropdown-item" href="{{ url('/alumnos/create') }}">Agregar alumno</a>
           <a class="dropdown-item" href="{{ url('/escuelas') }}">Lista Escuelas</a>
           <a class="dropdown-item" href="{{ url('/escuelas/create') }}">Agregar Escuela</a>

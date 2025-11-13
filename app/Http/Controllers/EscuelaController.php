@@ -13,7 +13,14 @@ class EscuelaController extends Controller
     public function index()
     {
         //
-        $escuelas = Escuela::paginate(5);
+        $escuelas = Escuela::query()->when(request('sort'), function($query, $sort) {
+            $direccion = request('direction');
+            return match($sort) {
+                'id' => $query->orderBy('id', $direccion),
+                'nombre' => $query->orderBy('nombre', $direccion),
+                default => $query
+            };
+        })->paginate(5);
         return view('escuelas.index', compact('escuelas'));
     }
 

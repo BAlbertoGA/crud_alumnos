@@ -11,9 +11,22 @@ class AlumnoController extends Controller
 {
     public function index()
     {
-    $alumnos = Alumno::with('escuela')->paginate(5);
-    return view('alumnos.index', compact('alumnos'));
-}
+        $alumnos = Alumno::with('escuela')->when(request('sort'), function($query, $sort) {
+            $direccion = request('direction');
+            return match($sort) {
+                'id' => $query->orderBy('id', $direccion),
+                'nombre' => $query->orderBy('nombre', $direccion),
+                'primerapellido' => $query->orderBy('primerapellido', $direccion),
+                'segundoapellido' => $query->orderBy('segundoapellido', $direccion),
+                'escuela' => $query->join('escuelas', 'alumnos.escuela_id', '=', 'escuelas.id')
+                                   ->orderBy('escuelas.nombre', $direccion)
+                                   ->select('alumnos.*'),
+                default => $query
+            };
+        })->paginate(5);
+        $alumnos->appends(request()->query());
+        return view('alumnos.index', compact('alumnos'));
+    }
 
     public function create()
     {
