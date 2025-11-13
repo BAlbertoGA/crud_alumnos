@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('segundoapellido');
             $table->unsignedBigInteger('escuela_id'); // clave foránea
             $table->timestamps();
+            $table->softDeletes();
 
-             $table->foreign('escuela_id')
-              ->references('id')->on('escuelas')
-              ->onDelete('cascade');
+            $table->foreign('escuela_id')
+            ->references('id')->on('escuelas')
+            ->onDelete('cascade');
         });
     }
 

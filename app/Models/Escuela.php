@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Escuela extends Model
 {
+    use SoftDeletes;
+    
     protected $fillable = ['nombre', 'direccion'];
 
     public function alumnos()
