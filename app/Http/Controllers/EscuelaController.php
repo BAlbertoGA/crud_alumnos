@@ -13,8 +13,8 @@ class EscuelaController extends Controller
     public function index()
     {
         //
-        $escuelas = Escuela::all();
-        return view('escuelas.index');
+        $escuelas = Escuela::paginate(10);
+        return view('escuelas.index', compact('escuelas'));
     }
 
     /**
@@ -32,7 +32,7 @@ class EscuelaController extends Controller
     public function store(Request $request)
     {
         //
-        Escuela::create($request->all());
+        Escuela::insert($request->except('_token'));
         return redirect()->route('escuelas.index');
     }
 
@@ -50,26 +50,29 @@ class EscuelaController extends Controller
     public function edit(Escuela $escuela)
     {
         //
+        $escuela = Escuela::findOrFail($escuela->id);
         return view('escuelas.edit', compact('escuela'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Escuela $escuela)
+    public function update(Request $request, $id)
     {
         //
-        $escuela->update($request->all());
+        Escuela::where('id', $id)->update($request->except('_token', '_method'));
+        $escuela = Escuela::findOrFail($id);
         return redirect()->route('escuelas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Escuela $escuela)
+    public function destroy($id)
     {
         //
-        $escuela->delete();
+        $escuela = Escuela::findOrFail($id);
+        Escuela::destroy($id);
         return redirect()->route('escuelas.index');
     }
 }
