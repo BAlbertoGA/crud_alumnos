@@ -75,10 +75,10 @@ class EscuelaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Escuela $escuela, $id)
+    public function destroy(Escuela $escuela)
     {
         //
-        $escuela = Escuela::findOrFail($id);
+        $escuela = Escuela::findOrFail($escuela->id);
         $escuela->alumnos()->delete();
         $escuela->delete();
 
