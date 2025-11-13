@@ -17,12 +17,13 @@ class AlumnoController extends Controller
 
     public function create()
     {
-        return view('alumnos.create');
+        $escuelas = Escuela::all();
+        return view('alumnos.create', compact('escuelas'));
     }
 
     public function store(Request $request)
     {
-        Alumno::create($request->all());
+        Alumno::insert($request->except('_token'));
         return redirect('alumnos/')->with('mensaje', 'Alumno creado exitosamente.');
     }
 

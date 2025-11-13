@@ -26,7 +26,7 @@
                     <td>{{ $alumno->nombre }}</td>
                     <td>{{ $alumno->primerapellido }}</td>
                     <td>{{ $alumno->segundoapellido }}</td>
-                    <td>{{ $alumno->escuelas->nombre }}</td>
+                    <td>{{ $alumno->escuela->nombre }}</td>
                     <td>
                         <a href="{{ url('/alumnos/'.$alumno->id.'/edit') }}" class="btn btn-warning">
                             Editar
