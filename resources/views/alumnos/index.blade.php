@@ -1,6 +1,11 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
+@extends('adminlte::page')
+@section('title', 'Alumnos')
+
+@section('content_header')
+    <h1>Lista Alumnos</h1>
+@stop
 @section('content')
-<h1>Listado de Alumnos</h1>
 
     <a href="{{ route('alumnos.create') }}">➕ Nuevo Alumno</a>
     <br>
