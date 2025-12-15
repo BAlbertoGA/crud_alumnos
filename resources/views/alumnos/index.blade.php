@@ -1,6 +1,6 @@
 {{-- @extends('layouts.app') --}}
 @extends('adminlte::page')
-@section('title', 'Alumnos')
+@section('title', 'Lista Alumnos')
 
 @section('content_header')
     <h1>Lista Alumnos</h1>

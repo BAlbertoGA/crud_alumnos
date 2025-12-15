@@ -1,4 +1,5 @@
 @extends('adminlte::page')
+@section('title', 'Escuelas Lista')
 
 @section('content')
     <h1>Listado de Escuelas</h1>
